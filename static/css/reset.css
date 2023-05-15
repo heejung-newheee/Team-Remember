@@ -1,0 +1,29 @@
+/* 숙련자일수록 CSS 파일 맨 위에 써놓는 코드가 많음 */
+/* 1. CSS reset.css 파일 ! => 호환성 이슈 해결책 첨부 
+  (google에 'normalize.css 검색해서  찾아보기!)*/
+div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'nanumsquare';
+}
+div {
+  box-sizing: border-box;
+}
+p {
+  font-size: 16px;
+}
+h1 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 22px;
+}
+h5 {
+  font-size: 20px;
+}
+html {
+  line-height: 1.15; /*기본 행간 높이*/
+}
