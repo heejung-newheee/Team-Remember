@@ -1,20 +1,56 @@
-.header-bg {
+/* .header-bg {
   background-color: olivedrab;
   width: 100%;
   height: 100px;
+} */
+
+/* 포스팅박스 토글 */
+#posting-box {
+  display: none;
+}
+
+.modalOf-detailPost {
+  /* 일단 일시적으로 모달창 숨겨줄게여.. */
+  display: none;
+
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 .detail-post-bg {
   /* 흰색으로 바꿀거야 */
-  background-color: rgb(156, 211, 46);
+
   width: 100%;
+
+  position: absolute;
+  /* left: 30px; */
+  top: 20px;
 }
 .detail-post-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* ! mother...뭐선일이고 */
+/* 왜 mother까지 썼냐면... class detail-post가 모달창의 좌우를 조정하고 있었는데..
+감싸는 div가 없어서 하나를 더 만들게 되었다는... 아.. ㅋㅋ.. 
+* 교훈 : 위치는 공통된 위치는 바깥에서.. 최대한 해결하자.. (좌우 magin..설정등) */
+.detail-post-wrapper-mother {
+  width: 800px;
+  margin: 0 auto;
+
+  height: 800px;
+  overflow: auto;
+}
 .detail-post {
-  background-color: rgb(244, 146, 18);
+  background-color: rgb(223, 223, 223);
   padding: 25px;
   width: 800px;
   margin: 0 auto;
@@ -40,6 +76,16 @@
 }
 .detail-post1-info div {
   border-bottom: 1px solid lightgray;
+}
+
+/* 아래 친구도 댓글 토글기능 없애면서 주석처리.. */
+/* #comment-toggle-box {
+  display: none;
+} */
+
+.comment-bg {
+  padding-top: 0;
+  padding-bottom: 60px;
 }
 .comment-toggle-btn1 {
   margin: 0;
@@ -112,10 +158,11 @@
   background-color: white;
   width: 100%;
 
+  /* 하단 스크롤바는 일단 사용안하게 되어 주석처리 */
   /* 스크롤 안넣었을 때는 min-height: 130px 로 해야 댓글들 배열에 문제가 없었는데 
   overflow:auto 해주니까 상관없어보임! */
-  height: 432px;
-  overflow: auto;
+  /* overflow: auto;  height: 432px; */
+
   /* border: 1px solid black; */
 }
 .comment-get-items {
@@ -162,7 +209,7 @@
   border-bottom: 1px solid lightgray;
   margin-bottom: 20px;
 }
-footer {
+/* footer {
   width: 100%;
   background-color: beige;
   height: 100px;
@@ -171,4 +218,4 @@ footer {
 footer p {
   text-align: center;
   margin-top: 40px;
-}
+} */

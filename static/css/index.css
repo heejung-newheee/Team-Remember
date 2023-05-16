@@ -1,24 +1,119 @@
+header {
+  width: 100%;
+  height: 150px;
+  padding: 30px;
+  background-image: url('https://i.pinimg.com/564x/f3/d0/48/f3d048627ea44d32c6edf2389f1caa0f.jpg');
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+}
+.add-team-crew {
+  /* background-color: skyblue; */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* ? right : 30px하면 왜 화면 밖으로 나가는지 궁금 */
+  position: absolute;
+  right: 90px;
+  bottom: 30px;
+}
+.add-team-crew span {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.add-team-crew button {
+  padding: 1px 3px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+/* 새로운 팀원 포스팅 */
+.posting-bg {
+  /* background-color: blanchedalmond; */
+  width: 100%;
+  height: 710px;
+  padding: 1px;
+}
+.posting-wrapper {
+  background-color: palevioletred;
+  width: 600px;
+  height: 660px;
+  margin: 20px auto;
+  padding: 40px 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.posting-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.posting-item span {
+  font-size: 20px;
+  font-weight: 600;
+}
+.posting-item input {
+  padding: 10px 20px;
+  width: 50%;
+  border-radius: 12px;
+  border: 1px solid gray;
+}
+.posting-item textarea {
+  padding: 10px 20px;
+  resize: none;
+  width: 50%;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid gray;
+}
+.posting-btns button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.posting-btns button:hover {
+  cursor: pointer;
+}
+
+/* 팀소개 카드 */
 .teamIntro-bg {
+  margin-top: 80px;
   /* 배경색 흰색으로 바꿀겁니다 */
-  background-color: beige;
+  background-color: rgb(132, 120, 211);
   padding: 1px;
   width: 100%;
-  height: 400px;
+  height: 300px;
 }
 .teamIntro-wrapper {
-  background-color: olive;
-  max-width: 700px;
+  background-color: rgb(233, 220, 245);
+  max-width: 600px;
   width: 100%;
-  height: 300px;
-  margin: 50px auto;
+  height: 250px;
+  margin: 25px auto;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.teamIntro-wrapper h1,
+.teamIntro-wrapper p,
+.teamIntro-wrapper h5 {
+  margin: 5px;
+}
 .teamIntro-wrapper h1 {
-  font-size: 55px;
+  font-size: 45px;
 }
 .crew-cards-bg {
   width: 100%;
@@ -26,7 +121,7 @@
 }
 .crew-cards-wrapper {
   background-color: teal;
-  max-width: 1000px;
+  max-width: 800px;
   width: 100%;
 
   /*! margin top과 bottom은 어떻게 할지 생각중 */
@@ -52,6 +147,10 @@
   margin: 15px 0;
 
   border-radius: 20px;
+}
+.crew-card:hover {
+  cursor: pointer;
+  border: 3px solid white;
 }
 .crew-card-img {
   max-width: 200px;
