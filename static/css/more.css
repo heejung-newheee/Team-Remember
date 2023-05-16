@@ -1,3 +1,167 @@
+.header-bg {
+  background-color: olivedrab;
+  width: 100%;
+  height: 100px;
+}
+.detail-post-bg {
+  /* 흰색으로 바꿀거야 */
+  background-color: rgb(156, 211, 46);
+  width: 100%;
+}
+.detail-post-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail-post {
+  background-color: rgb(244, 146, 18);
+  padding: 25px;
+  width: 800px;
+  margin: 0 auto;
+}
+.detail-post-img {
+  width: 200px;
+  height: 200px;
+}
+.detail-post-img img {
+  width: 100%;
+  height: 100%;
+}
+.detail-post1-info {
+  width: 350px;
+  height: 300px;
+
+  font-size: 20px;
+  margin-left: 50px;
+  padding: 30px 0 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.detail-post1-info div {
+  border-bottom: 1px solid lightgray;
+}
+.comment-toggle-btn1 {
+  margin: 0;
+  background-color: white;
+}
+.comment-toggle-btn1:hover {
+  cursor: pointer;
+}
+/* ! 이 토글 arrow는 버튼 클릭시 위아래 뒤집히는 회전style주기! */
+.toggle-arrow {
+  margin-left: 5px;
+  padding-left: 5px;
+  border-left: 2px solid lightgray;
+}
+.comment-post-wrapper {
+  background-color: white;
+  width: 100%;
+  min-height: 180px;
+  border: 1px solid lightgray;
+  border-top: none;
+}
+.comment-post-wrapper textarea {
+  /* ?  border-box고 width도 100%인데 왜 삐져나가는지 모르겠네...; */
+  box-sizing: border-box;
+  /* width: 100%; */
+
+  width: 712px;
+  height: 80px;
+  padding: 9px;
+  resize: none;
+
+  margin: 9px 18px;
+
+  /* textarea maring bottom써도 안사라지는 여백 display:block으로 해결 */
+  display: block;
+
+  border: 1px solid lightgray;
+}
+.comment-post-wrapper div {
+  /* background-color: olive; */
+  height: 40px;
+  border-top: 1px solid lightgray;
+}
+.comment-post-wrapper div input {
+  display: inline-block;
+  margin: 10px 18px;
+
+  font-weight: 500;
+  padding: 5px 9px;
+  border: 1px solid lightgray;
+}
+.comment-post-wrapper div button {
+  height: 100%;
+  width: 55px;
+  font-weight: 500;
+
+  /* ! 버튼... 꽉 못채워서 좀 찔리네.. */
+  background-color: white;
+  border: 1px solid lightgray;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+
+  float: right;
+}
+.comment-post-wrapper div button:hover {
+  cursor: pointer;
+}
+.comment-get-wrapper {
+  background-color: white;
+  width: 100%;
+
+  /* 스크롤 안넣었을 때는 min-height: 130px 로 해야 댓글들 배열에 문제가 없었는데 
+  overflow:auto 해주니까 상관없어보임! */
+  height: 432px;
+  overflow: auto;
+  /* border: 1px solid black; */
+}
+.comment-get-items {
+  padding: 9px 18px;
+}
+.comment-get-top {
+  /* background-color: olive; */
+  height: 40px;
+  /* border-top: 1px solid lightgray; */
+}
+.comment-get-top span {
+  display: inline-block;
+  margin: 3px 0;
+  font-weight: 500;
+}
+.comment-get-top div {
+  float: right;
+}
+.comment-get-top button {
+  background-color: transparent;
+  border: none;
+}
+.comment-get-top button:hover {
+  cursor: pointer;
+}
+#comment-edit:hover {
+  color: green;
+}
+#comment-delete:hover {
+  color: red;
+}
+.comment-get-mid {
+  /* background-color: yellowgreen; */
+  min-height: 60px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+.comment-get-bottom {
+  padding-top: 0px;
+  font-size: 13px;
+  font-weight: 500;
+}
+#comment-list-item {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+}
 footer {
   width: 100%;
   background-color: beige;
