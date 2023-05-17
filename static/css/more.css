@@ -214,10 +214,13 @@
   font-size: 13px;
   font-weight: 500;
 }
-#comment-list-item {
+
+/* 하... 왜 안되냐구.... id이외로 !important로도 안됨.. */
+.comment-list-item {
   border-bottom: 1px solid lightgray;
   margin-bottom: 20px;
 }
+
 /* footer {
   width: 100%;
   background-color: beige;

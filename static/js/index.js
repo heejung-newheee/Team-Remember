@@ -74,14 +74,14 @@ function toShowMoreInfo(pre_p_id) {
     .then((res) => res.json())
     .then((data) => {
       rows = data['result'];
-      console.log(rows);
+      // console.log(rows);
       $('#modal-darkness').removeClass('modal-darkness');
-      $('#modal-darkness').empty();
+      $('#heytopPost').empty();
 
       // ! 가지고온 더미가 하나밖에 없어서 for문 안돌려도 되고, 돌리면 오히려 안나오더라
       // for (let i = 0; i < rows.length; i++) {
       let p_id = rows['p_id'];
-      console.log(p_id);
+      // console.log(p_id);
       let img = rows['crew_img'];
       let name = rows['crew_name'];
       let mbti = rows['crew_mbti'];
@@ -90,137 +90,95 @@ function toShowMoreInfo(pre_p_id) {
       let github = rows['crew_github'];
       let hobby = rows['crew_hobby'];
       let temp_html = `
-        <!-- detail-post-bg 안에 comment 전체 box도 포함 -->
-        <div id="detail-post" class="detail-post-bg">
-          <!-- ! mother...뭐선일이고 -->
-          <div class="detail-post-wrapper-mother">
-            <button onclick="killModal()" class="kill-modal-darkness">X</button>
-            <div id="p${p_id}" class="detail-post detail-post-wrapper">
-              <div class="detail-post-img">
-                <img src="${img}" alt="" />
-              </div>
-              <div class="detail-post1-info">
-                <div>
-                  <i class="fa-solid fa-user"></i>
-                  <span style="margin-left: 20px">${name}</span>
-                </div>
-                <div>
-                  <i class="fa-solid fa-star"></i>
-                  <span style="margin-left: 20px">${mbti}</span>
-                </div>
-                <div>
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span style="margin-left: 20px">${address}</span>
-                </div>
-                <div>
-                  <i class="fa-solid fa-envelope"></i>
-                  <span style="margin-left: 20px">${email}</span>
-                </div>
-                <div>
-                  <i class="fa-brands fa-github"></i>
-                  <span style="margin-left: 20px">${github}</span>
-                </div>
-                <div>
-                  <i class="fa-solid fa-plane"></i>
-                  <span style="margin-left: 20px">${hobby}</span>
-                </div>
-              </div>
-            </div>
-  
-            <!-- 토글 발동 버튼 id="comment-toggle-btn" -->
-            <!-- <div class="detail-post comment-toggle-wrapper" style="background-color: white">
-              <button id="comment-toggle-btn" class="comment-toggle-btn1">
-                <i class="fa-regular fa-comment-dots fa-flip-horizontal" style="margin-right: 5px"></i>댓글
-                <i class="fa-solid fa-angle-down toggle-arrow"></i>
-              </button>
-            </div> -->
-  
-            <!-- 댓글 입력하기 -->
-            <!-- comment-bg는 toggle형태로 숨기고 보이게 하고 싶다 -->
-            <!-- 접히는 부분 id=comment-toggle box -->
-            <!-- ! 수정필요 아래 백그라운드 배경 수정 필요한가 -->
-            <div id="comment-toggle-box" class="detail-post comment-bg" style="background-color: white">
-              <div class="comment-post-wrapper">
-                <div><input id="comment-name" placeholder="이름" /></div>
-                <textarea
-                  name="comment"
-                  id="comment"
-                  placeholder="궁금하거나 하실 말씀이 있으면 댓글을 입력해주세요!"></textarea>
-                <div><button id="pForC${p_id}" onclick=commentPosting(this.id)>등록</button></div>
-              </div>
-  
-              <!-- 댓글 전체보기 -->
-              <!-- 각 comment 감싸고 있는게 id="comment-list"  -->
-              <!-- ! height 130px(보통댓글 3개 정도) 이상 => 더 보이는 댓글이 흘러넘치면 스크롤 될 수 있도록 -->
-              <!-- 스크롤 기능은 class="comment-get-wrapper"에 추가! -->
-              <div id="comment-list" class="comment-get-wrapper" style="margin-top: 30px">
-                <div id="comment-list-item">
-                  <div class="comment-get-items comment-get-top">
-                    <span>신짱구</span>
-                    <div>
-                      <button id="comment-edit" style="font-weight: 500">수정</button>/<button
-                        id="comment-delete"
-                        style="font-weight: 500">
-                        삭제
-                      </button>
-                    </div>
-                  </div>
-                  <div class="comment-get-items comment-get-mid">
-                    <span
-                      >comment 내용 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid autem saepe suscipit
-                      omnis eveniet vero ducimus ex tempora, animi dicta eligendi inventore amet praesentium mollitia
-                      reprehenderit doloremque dolor tenetur doloribus!</span
-                    >
-                  </div>
-                  <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
-                </div>
-                <div id="comment-list-item">
-                  <div class="comment-get-items comment-get-top">
-                    <span>신짱구</span>
-                    <div>
-                      <button id="comment-edit" style="font-weight: 500">수정</button>/<button
-                        id="comment-delete"
-                        style="font-weight: 500">
-                        삭제
-                      </button>
-                    </div>
-                  </div>
-                  <div class="comment-get-items comment-get-mid">
-                    <span
-                      >comment 내용 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid autem saepe suscipit
-                      omnis eveniet vero ducimus ex tempora, animi dicta eligendi inventore amet praesentium mollitia
-                      reprehenderit doloremque dolor tenetur doloribus!</span
-                    >
-                  </div>
-                  <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
-                </div>
-                <div id="comment-list-item">
-                  <div class="comment-get-items comment-get-top">
-                    <span>신짱구</span>
-                    <div>
-                      <button id="comment-edit" style="font-weight: 500">수정</button>/<button
-                        id="comment-delete"
-                        style="font-weight: 500">
-                        삭제
-                      </button>
-                    </div>
-                  </div>
-                  <div class="comment-get-items comment-get-mid">
-                    <span
-                      >comment 내용 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid autem saepe suscipit
-                      omnis eveniet vero ducimus ex tempora, animi dicta eligendi inventore amet praesentium mollitia
-                      reprehenderit doloremque dolor tenetur doloribus!</span
-                    >
-                  </div>
-                  <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
-                </div>
-              </div>
-            </div>
+      <div id="p${p_id}" class="detail-post detail-post-wrapper">
+        <div class="detail-post-img">
+          <img src="${img}" alt="" />
+        </div>
+        <div class="detail-post1-info">
+          <div>
+            <i class="fa-solid fa-user"></i>
+            <span style="margin-left: 20px">${name}</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-star"></i>
+            <span style="margin-left: 20px">${mbti}</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <span style="margin-left: 20px">${address}</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <span style="margin-left: 20px">${email}</span>
+          </div>
+          <div>
+            <i class="fa-brands fa-github"></i>
+            <span style="margin-left: 20px">${github}</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-plane"></i>
+            <span style="margin-left: 20px">${hobby}</span>
           </div>
         </div>
+      </div>
+
+      <!-- 토글 발동 버튼 id="comment-toggle-btn" -->
+      <!-- <div class="detail-post comment-toggle-wrapper" style="background-color: white">
+      <button id="comment-toggle-btn" class="comment-toggle-btn1">
+        <i class="fa-regular fa-comment-dots fa-flip-horizontal" style="margin-right: 5px"></i>댓글
+        <i class="fa-solid fa-angle-down toggle-arrow"></i>
+      </button>
+    </div> -->
+
+      <!-- 댓글 입력하기 -->
+      <!-- comment-bg는 toggle형태로 숨기고 보이게 하고 싶다 -->
+      <!-- 접히는 부분 id=comment-toggle box -->
+      <!-- ! 수정필요 아래 백그라운드 배경 수정 필요한가 -->
+      <div class="detail-post comment-post-wrapper comment-bg">
+        <div><input id="comment-name" placeholder="이름" /></div>
+        <textarea
+          name="comment"
+          id="comment"
+          placeholder="궁금하거나 하실 말씀이 있으면 댓글을 입력해주세요!"></textarea>
+        <div><button id="pForC${p_id}" onclick="commentPosting(this.id)">등록</button></div>
+      </div>
       `;
-      $('#modal-darkness').append(temp_html);
+      $('#heytopPost').append(temp_html);
       // }
+    });
+  fetch(`/comment/${p_id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      let comments = data['result'];
+      console.log(comments);
+      $('#comment-list').empty();
+      comments.forEach((a) => {
+        let p_id = a['p_id'];
+        console.log(p_id);
+        let r_id = a['r_id'];
+        let comment_name = a['comment_name'];
+        let comment = a['comment'];
+        let temp_html = `
+        <div id="r${r_id}" class="comment-list-item">
+          <div class="comment-get-items comment-get-top">
+            <span>${comment_name}</span>
+            <div>
+              <button id="comment-edit" style="font-weight: 500">수정</button>/<button onclick="commentDelete(${p_id}, ${r_id})"
+                id="comment-delete"
+                style="font-weight: 500">
+                삭제
+              </button>
+            </div>
+          </div>
+          <div class="comment-get-items comment-get-mid">
+            <span>${comment}</span>
+          </div>
+          <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
+        </div>
+        `;
+        $('#comment-list').append(temp_html);
+      });
     });
 }
 
@@ -252,5 +210,16 @@ function commentPosting(pre_p_id) {
       alert(data['msg']);
       $('#comment-name').val('');
       $('#comment').val('');
+    });
+}
+
+// 댓글 삭제
+function commentDelete(p_id, r_id) {
+  fetch(`/comment/${p_id}/${r_id}`, { method: 'DELETE' })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      alert(data['msg']);
+      location.reload();
     });
 }

@@ -115,5 +115,18 @@ def commentInfo_post():
     db.commentdata.insert_one(doc)
     return jsonify({'msg':'댓글 등록 완료!'})
 
+@app.route("/comment/<p_id>", methods=["GET"])
+def commentInfo_get(p_id):
+    all_commentdata = list(db.commentdata.find({'p_id' : int(p_id)},{'_id':False}))
+    print(all_commentdata)
+    return jsonify({'result': all_commentdata})
+
+@app.route("/comment/<p_id>/<r_id>", methods=["DELETE"])
+def commentInfo_delete(p_id, r_id):
+
+    db.commentdata.delete_one({'p_id':int(p_id), 'r_id':int(r_id)})
+    return jsonify({'msg': '댓글 삭제 완료'})
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
