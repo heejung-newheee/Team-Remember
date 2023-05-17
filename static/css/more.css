@@ -35,6 +35,12 @@
   /* left: 30px; */
   top: 20px;
 }
+.kill-modal-darkness {
+  position: fixed;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+}
 .detail-post-wrapper {
   display: flex;
   justify-content: center;

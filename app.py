@@ -70,7 +70,7 @@ def crewInfo_post():
         'crew_hobby' : hobby_receive,
     }
     db.crewdata.insert_one(doc)
-    return jsonify({'msg':'등록 완료!'})
+    return jsonify({'msg':'게시물 등록 완료!'})
 
 @app.route("/post", methods=["GET"])
 def crewInfo_get():
@@ -88,6 +88,32 @@ def crewMoreInfo_get(p_id):
     return jsonify({'result': result})
     # return "Success"
     # 위에 return "Success"는 print()만 확인하고 싶어서 사용한 것
+
+@app.route("/comment", methods=["POST"])
+def commentInfo_post():
+    
+    p_id = int(request.form['p_id'])
+    comment_name_receive = request.form['comment-name_give']
+    comment_receive = request.form['comment_give']
+
+    all_commentdata = list(db.commentdata.find({'p_id':p_id},{'_id':False}))
+    r_ids = []
+    for commentdata in all_commentdata:
+      r_ids.append(commentdata['r_id'])
+    if len(r_ids) == 0:
+      r_id = 1
+    else:
+      r_ids.sort(reverse=True)
+      r_id = int(r_ids[0]) + 1
+
+    doc = {
+        'p_id' : p_id,
+        'r_id' : r_id,
+        'comment_name' : comment_name_receive,
+        'comment' : comment_receive,
+    }
+    db.commentdata.insert_one(doc)
+    return jsonify({'msg':'댓글 등록 완료!'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)

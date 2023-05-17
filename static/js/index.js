@@ -94,6 +94,7 @@ function toShowMoreInfo(pre_p_id) {
         <div id="detail-post" class="detail-post-bg">
           <!-- ! mother...뭐선일이고 -->
           <div class="detail-post-wrapper-mother">
+            <button onclick="killModal()" class="kill-modal-darkness">X</button>
             <div id="p${p_id}" class="detail-post detail-post-wrapper">
               <div class="detail-post-img">
                 <img src="${img}" alt="" />
@@ -134,6 +135,7 @@ function toShowMoreInfo(pre_p_id) {
               </button>
             </div> -->
   
+            <!-- 댓글 입력하기 -->
             <!-- comment-bg는 toggle형태로 숨기고 보이게 하고 싶다 -->
             <!-- 접히는 부분 id=comment-toggle box -->
             <!-- ! 수정필요 아래 백그라운드 배경 수정 필요한가 -->
@@ -144,10 +146,9 @@ function toShowMoreInfo(pre_p_id) {
                   name="comment"
                   id="comment"
                   placeholder="궁금하거나 하실 말씀이 있으면 댓글을 입력해주세요!"></textarea>
-                <div><button>등록</button></div>
+                <div><button id="pForC${p_id}" onclick=commentPosting(this.id)>등록</button></div>
               </div>
   
-              <!-- 댓글 입력하기 -->
               <!-- 댓글 전체보기 -->
               <!-- 각 comment 감싸고 있는게 id="comment-list"  -->
               <!-- ! height 130px(보통댓글 3개 정도) 이상 => 더 보이는 댓글이 흘러넘치면 스크롤 될 수 있도록 -->
@@ -223,6 +224,33 @@ function toShowMoreInfo(pre_p_id) {
     });
 }
 
-$('#modal-darkness').click(function () {
+function killModal() {
   $('#modal-darkness').addClass('modal-darkness');
-});
+}
+// $('#kill-modal-darkness').click(function () {
+// $('#modal-darkness').addClass('modal-darkness');
+// });
+
+function commentPosting(pre_p_id) {
+  console.log(pre_p_id);
+  // substr은 함수로 문자열 자르는 방법.(참고 자료 'https://gent.tistory.com/414')
+  // 약식 게시물 post id값이 sp1, sp2, sp3.. 이라 sp 잘라주고 서버로 보내기 위해 substr사용
+  let p_id = pre_p_id.substr(5);
+  let comment_name = $('#comment-name').val();
+  let comment = $('#comment').val();
+  console.log(p_id, comment_name, comment);
+
+  let formData = new FormData();
+  formData.append('p_id', p_id);
+  formData.append('comment-name_give', comment_name);
+  formData.append('comment_give', comment);
+
+  fetch('/comment', { method: 'POST', body: formData })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      alert(data['msg']);
+      $('#comment-name').val('');
+      $('#comment').val('');
+    });
+}
