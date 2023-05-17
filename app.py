@@ -77,5 +77,17 @@ def crewInfo_get():
     result = list(db.crewdata.find({},{'_id':False}))
     return jsonify({'result': result})
 
+# ! 약식 게시물 해결하고 2번째로 처리예정.
+@app.route("/post-one/<p_id>", methods=["GET"])
+def crewMoreInfo_get(p_id):
+    print(p_id)
+    # print('하잉')
+    # 위에 print('하잉')은 p_id 값이 문자열일 확률을 보기 위해 시험해본것임. 문자열 같아서 아래에 int()를 사용하여 정수로 변환해줌
+    result = db.crewdata.find_one({'p_id' : int(p_id)},{'_id':False})
+    print(result)
+    return jsonify({'result': result})
+    # return "Success"
+    # 위에 return "Success"는 print()만 확인하고 싶어서 사용한 것
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
