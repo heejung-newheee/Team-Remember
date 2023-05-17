@@ -21,10 +21,11 @@ def guestbook_post():
     doc = {
         'name' :name_receive,
         'comment' :comment_receive
+    
     }
     db.member.insert_one(doc)
 
-    return jsonify({'msg': '저장 완료!'})
+    return jsonify({'msg': '등록 완료!'})
 
 @app.route("/guestbook", methods=["GET"])
 def guestbook_get():
