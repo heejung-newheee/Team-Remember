@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inner {
+      width: 1320px;
+      margin: 0 auto;
+    }
+
+    .introduce {
+      margin-top: 60px;
+      margin-bottom: 120px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .introduce img {
+      width: 50%;
+      height: 500px;
+      background-color: red;
+    }
+
+    .introduce div {
+      width: 49%;
+      display: inline-block;
+      margin-left: 50px;
+    }
+
+    .contents {
+      margin-bottom: 120px;
+    }
+
+    #comment {
+      margin-bottom: 120px;
+    }
+
+    .comment_user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 10px 0px;
+    }
+
+    .comment_user .comment_name {
+      border-right: 1px solid;
+      padding-right: 10px;
+    }
+
+    .comment_user .comment_review {
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="inner">
+    <div class="introduce">
+      <img src="https://i.postimg.cc/8jWp234J/image.png" alt="">
+      <div>
+        <p>이름: 김슬기</p>
+        <p>MBTI: INFJ</p>
+        <p>블로그 주소: https://seul-bean-developer.tistory.com/</p>
+      </div>
+    </div>
+    <div class="contents">
+      <h2>Contents</h2>
+      <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+        "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+        What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galle</p>
+    </div>
+    <div id="comment">
+      <div class="comment_input">
+        <h2>Comment</h2>
+        <div>
+          <input for="" placeholder="Name"></input>
+          <input for="" placeholder="Comment"></input>
+          <button>작성</button>
+        </div>
+      </div>
+      <div class="comment_user">
+        <p class="comment_name">김슬기</p>
+        <p class="comment_review">4조가 짱이다!!</p>
+      </div>
+      <div class="comment_user">
+        <p class="comment_name">김슬기</p>
+        <p class="comment_review">4조가 짱이다!!</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

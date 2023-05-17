@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>Member Remember</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <script type="text/javascript" src="../static/script.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&family=Playfair+Display:ital@1&display=swap');
+  </style>
+
+</head>
+
+<body>
+
+  <div class="banner">
+    <h1><a href="#">기억해조</a></h1>
+  </div>
+  <div class="inner">
+    <div class="intro">
+      <img src="../static/image/image03.png" alt="">
+      <p>
+        <span>Hello wolrd!</span><br>저희는 '기억해조'라고 합니다.<br>
+        모두 멋진 개발자가 되기 위해 매일 노력하고 있답니다.<br>
+
+        노력한만큼 미래에 멋진 개발자가 될 수 있길 바라며<br>
+        모두 모두 파이팅합시다!!
+      </p>
+    </div>
+
+    <!--포스트작성-->
+    <div class="write">
+      <button class="btn_open" onclick="open_box()">작성하기</button>
+    </div>
+    <div id="open_form">
+      <div class="mypost" id="post-box">
+        <div class="form-floating mb-3">
+          <input id="url" type="email" class="form-control" placeholder="name@example.com" />
+          <label>프로필 이미지 URL</label>
+        </div>
+        <div class="form-floating">
+          <textarea id="name" class="form-control" placeholder="Leave a comment here"></textarea>
+          <label for="floatingTextarea2">Name</label>
+        </div>
+        <div class="form-floating">
+          <textarea id="mbti" class="form-control" placeholder="Leave a comment here"></textarea>
+          <label for="floatingTextarea2">MBTI</label>
+        </div>
+        <div class="form-floating">
+          <textarea id="blog" class="form-control" placeholder="Leave a comment here"></textarea>
+          <label for="floatingTextarea2">블로그 주소</label>
+        </div>
+        <div class="mybtns">
+          <button onclick="posting()" type="button" class="btn btn-primary">
+            기록하기
+          </button>
+          <button onclick="close_box()" type="button" class="btn btn-outline-dark">
+            닫기
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="cards">
+      <h2>Members</h2>
+      <div id="cards-box">
+        <div class="col"><a href=""><img src="" alt=""></a></div>
+        <div id="introduce">
+          <button>x</button>
+          <div class="wrap">
+            <img src="https://i.postimg.cc/8jWp234J/image.png" alt="">
+            <div class="contents">
+              <div>
+                <h3>Name</h3>
+                <p>김슬기</p>
+              </div>
+              <div>
+                <h3>MBTI</h3>
+                <p>INFJ</p>
+              </div>
+              <div>
+                <h3>Blog</h3>
+                <p>https://seul-bean-developer.tistory.com/</p>
+              </div>
+            </div>
+            <div id="comment">
+              <div class="comment_input">
+                <h3>Comment</h3>
+                <div>
+                  <input class="name_input" for="" placeholder="Name"></input>
+                  <input class="comment_input" for="" placeholder="Comment"></input>
+                  <button>작성</button>
+                </div>
+              </div>
+              <div id="comments">
+                <div class="comment_user">
+                  <p class="comment_name">김슬기</p>
+                  <p class="comment_review">4조가 짱이다!!</p>
+                </div>
+                <div class="comment_user">
+                  <p class="comment_name">김슬기</p>
+                  <p class="comment_review">4조가 짱이다!!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col"><a href=""><img src="" alt=""></a></div>
+        <div class="col"><a href=""><img src="" alt=""></a></div>
+        <div class="col"><a href=""><img src="" alt=""></a></div>
+        <div class="col"><a href=""><img src="" alt=""></a></div>
+      </div>
+
+      <!--모달창-->
+      <!-- <div class="introduce">
+        <button>x</button>
+        <div class="wrap">
+          <img src="https://i.postimg.cc/8jWp234J/image.png" alt="">
+          <div class="contents">
+            <div>
+              <h3>Name</h3>
+              <p>김슬기</p>
+            </div>
+            <div>
+              <h3>MBTI</h3>
+              <p>INFJ</p>
+            </div>
+            <div>
+              <h3>Blog</h3>
+              <p>https://seul-bean-developer.tistory.com/</p>
+            </div>
+          </div>
+          <div id="comment">
+            <div class="comment_input">
+              <h3>Comment</h3>
+              <div>
+                <input class="name_input" for="" placeholder="Name"></input>
+                <input class="comment_input" for="" placeholder="Comment"></input>
+                <button>작성</button>
+              </div>
+            </div>
+            <div id="comments">
+              <div class="comment_user">
+                <p class="comment_name">김슬기</p>
+                <p class="comment_review">4조가 짱이다!!</p>
+              </div>
+              <div class="comment_user">
+                <p class="comment_name">김슬기</p>
+                <p class="comment_review">4조가 짱이다!!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+</body>
+
+</html>
