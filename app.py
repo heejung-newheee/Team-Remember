@@ -21,7 +21,7 @@ def guestbook_post():
     doc = {
         'name' :name_receive,
         'comment' :comment_receive
-    
+        
     }
     db.member.insert_one(doc)
 
