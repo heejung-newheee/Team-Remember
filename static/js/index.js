@@ -178,7 +178,9 @@ function toShowMoreInfo(pre_p_id) {
             </div>
           </div>
           <div class="comment-get-items comment-get-mid">
-            <textarea id="ec${r_id}" class="sbcomment" disabled>${comment}</textarea>
+            <textarea id="ec${r_id}" 
+              class="sbcomment" 
+              disabled>${comment}</textarea>
           </div>
           <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
         </div>
@@ -253,10 +255,33 @@ function commentEdit(p_id, ecr_id) {
 //   $('#comment-edit').show();
 // });
 function commentEditShow(p_id, cpr_id, ecr_id) {
-  console.log('하잉');
+  console.log('💙');
   $(cpr_id).toggle();
+  console.log(ecr_id);
+
+  // ? prop 찾아서 공부하기
+  if ($(ecr_id).prop('disabled')) {
+    $(ecr_id).prop('disabled', false);
+  } else {
+    $(ecr_id).prop('disabled', true);
+  }
+
+  // if ($(ecr_id).css('border') === 'none') {
+  //   $(ecr_id).css('border', '1px solid lightgray');
+  // } else {
+  //   $(ecr_id).css('border', 'none');
+  // }
+  //* 실패시도2
+  // trans_id = ecr_id.substr(1);
+  // if (trans_id.disabled == true) {
+  //   $(ecr_id).prop('disabled', false);
+  // } else {
+  //   $(ecr_id).prop('disabled', true);
+  // }
+
+  //* 실패시도1
   // if (disabled) {
-  $(ecr_id).prop('disabled', false);
+  // $(ecr_id).prop('disabled', false);
   // } else {
   // $(ecr_id).prop('disabled', true);
   // }
