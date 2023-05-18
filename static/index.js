@@ -4,7 +4,6 @@ $(function () {
     });
 
     function listing() {
-
         //list Load
         fetch('/post').then((res) => res.json()).then((data) => {
             let rows = data['result'];
@@ -38,15 +37,15 @@ $(function () {
 
                 let id = $(this).data('num');
 
-                $('.detail').attr('data-num', id);
+                $('#detail').attr('data-num', id);
 
                 let all_id = rows.map(rows => rows['_id']);
 
                 let indexNum = $.inArray(id, all_id);
 
-                let this_data = rows[indexNum]
+                let this_data = rows[indexNum];
                 
-                let $image =this_data['img']
+                let $image = this_data['img'];
                 let $name = this_data['name'];
                 let $mbti = this_data['mbti'];
                 let $blog = this_data['blog'];
@@ -61,17 +60,79 @@ $(function () {
                 $('.info-advantages').text($advantages);
                 $('.info-collaboration').text($collaboration);
 
-                $('.info-overlay').attr('data-num', _id);
+                // $('.info-overlay').attr('data-num', _id);
 
                 detail_modal.css({
                     'display': 'block'
                 });
             });
+
+              // edit Modal update
+
+    $('.edit-submit').click(update);
+    
+    function info_load() {   //  게시글 정보 input에 불러오기
+            let id = $('#detail').data('num');
+
+                let all_id = rows.map(rows => rows['_id']);
+
+                let indexNum = $.inArray(id, all_id);
+
+                let this_data = rows[indexNum]
+
+                let $image = this_data['img']
+
+                console.log(this_data)
+                let $name = this_data['name'];
+                let $mbti = this_data['mbti'];
+                let $blog = this_data['blog'];
+                let $advantages = this_data['advantages'];
+                let $collaboration = this_data['collaboration'];
+                
+                $('.edit-image img').attr('src', $image);
+                $('.edit-name').val($name);
+                $('.edit-mbti').val($mbti);
+                $('.edit-blog').val($blog);
+                $('.edit-advantages').text($advantages);
+                $('.edit-collaboration').text($collaboration);
+
+            
+
+        // let $img = $('.info-image img').attr('src');
+        // let $name = $('.info-name').text();
+        // let $comment = $('.info-comment').text();
+
+        // $('#edit-name').attr('value', $name);
+        // $('#edit-comment').text($comment);
+        // $('#edit-img').attr('value', $img);
+    }
+        //  edit-submit button
+         $('.detail-flex .edit').click(function() {    
+            let detail = $('.detail-overlay');
+            let edit = $('.edit-overlay');
+            let _id = $('#detail').data('num');
+
+            $('.edit-overlay').attr('data-id', _id);
+    
+            detail.css('display', 'none');
+            edit.css('display', 'block');
+    
+            info_load();
+        });
+    
+        // edit-cancel button
+        $('.edit-cancel').click(function () {
+            let $modal = $('.edit-overlay');
+            
+            $modal.css({
+                'display': 'none'
+            });
+        });
         });
 
         //   open detail-Modal
 
-        $('.detail').click(function () {
+        $('#detail').click(function () {
             let detail_modal = $('.detail-overlay');
 
             detail_modal.css({
@@ -145,47 +206,17 @@ $(function () {
         });
     }
 
-    // edit Modal update
-
-    $('.edit-submit').click(update);
-    
-    function info_load() {   //  게시글 정보 input에 불러오기
-        let this_data = $('.detail-overlay').data('num');
-
-        let $image =this_data['img']
-                let $name = this_data['name'];
-                let $mbti = this_data['mbti'];
-                let $blog = this_data['blog'];
-                let $advantages = this_data['advantages'];
-                let $collaboration = this_data['collaboration'];
-                
-                $('.edit-image img').attr('src', $image);
-                $('.edit-name').text($name);
-                $('.edit-mbti').text($mbti);
-                $('.edit-blog').text($blog);
-                $('.edit-advantages').text($advantages);
-                $('.edit-collaboration').text($collaboration);
-
-            
-
-        // let $img = $('.info-image img').attr('src');
-        // let $name = $('.info-name').text();
-        // let $comment = $('.info-comment').text();
-
-        // $('#edit-name').attr('value', $name);
-        // $('#edit-comment').text($comment);
-        // $('#edit-img').attr('value', $img);
-    }
+  
 
     function update() {     //  미완
         let check_info = new Array();
         fetch('/post/update').then((res) => res.json()).then((data) => {
             let remember = data['result'];
 
-            for(let i in remember) {
+            for (let i in remember) {
                 let $pw = remember[i]['pw'];
                 check_info[i] = {
-                    'id' : $id, 
+                    'id': $id, 
                     'pw': $pw
                 };
             }
@@ -199,9 +230,9 @@ $(function () {
 
         // let check_pw = 1;
         let $check_pw = $('#edit-pw').val();
-        let $id = $('.detail-overlay').data('num');
+        let $id = $('#detail').data('num');
 
-        if( 1 == $check_pw ) {
+        if (1 == $check_pw) {
             let img = $('#img').val();
             let name = $('#aname').val();
             let mbti = $('#mbti').val();
@@ -221,7 +252,8 @@ $(function () {
             formData.append("collaboration_give", collaboration);
             formData.append("pw_give", pw);
             
-            fetch(`/post/update`, { method: "POST", 
+            fetch(`/post/update`, { 
+                method: "POST", 
                 body: formData
             })
             .then((res) => res.json())
@@ -232,28 +264,7 @@ $(function () {
         }
         
     }
-     //  edit-submit button
-    $('.detail-flex .edit').click(function() {    
-        let detail = $('.detail-overlay');
-        let edit = $('.edit-overlay');
-        let _id = $('.detail-overlay').data('id');
 
-        $('.edit-overlay').attr('data-id', _id);
-
-        detail.css('display', 'none');
-        edit.css('display', 'block');
-
-        info_load();
-    });
-
-    // edit-cancel button
-    $('.edit-cancel').click(function() {
-        let $modal = $('.edit-overlay');
-        
-        $modal.css({
-            'display' : 'none'
-        });
-    });
 
 
 
@@ -347,4 +358,3 @@ $(function () {
     }
 
 });
-
