@@ -4,7 +4,6 @@ $(function () {
     });
 
     function listing() {
-
         //list Load
         fetch('/post').then((res) => res.json()).then((data) => {
             let rows = data['result'];
