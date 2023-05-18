@@ -1,0 +1,395 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard-Regular';
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+/* header CSS */
+.inner {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #3F4E4F;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+header .inner, section.inner {
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+header .inner img {
+    width: 300px;
+    margin-top: 5px;
+}
+
+
+
+
+/* team box CSS */
+.info-team {
+    margin-top: 70px;  
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box-team {
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    
+  
+    margin-top: 20px;  
+    width: 600px;
+    background-color: #630a105d;
+    color: #fff;
+}
+
+.box-team > p {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+/* team card CSS */
+#columns {
+    width: 600px;
+    margin: 20px auto 0;
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  #columns figure {
+    width: 200px;
+
+    display: inline-block;
+    text-align: center;
+  
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  
+    border-radius: 40px;
+  }
+  
+  #columns figure img {
+    width: 100%;
+    border-radius: 30px;
+  }
+  
+  #columns figure figcaption.name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #630A10;
+    padding: 10px;
+    margin-top: 11px;
+  }
+  
+  #columns figure figcaption.mbti {
+    padding: 10px;
+    border-radius: 18px;
+    color: white;
+    background-color: #4E6C50;
+  }
+  
+  #columns figure figcaption.caption {
+    padding: 10px;
+    color: #617A55;
+  }
+
+
+
+  /*post btn CSS */
+  .btnarea {
+    position: fixed;
+    left: 50%;
+    bottom: 50px;
+    transform: translate(-50%, -50%);
+}
+
+.join {
+
+    width: 300px;
+    height: 50px;
+
+    background-color: #E1D4BB;
+    color: #FCF0C8;
+    font-size: 20px;
+
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+
+    opacity: 0.7;
+}
+
+.join:hover {
+    background-color: #E5DCC3;
+    color: #A27B5C;
+    font-weight: 700;
+    border: 5px solid transparent;
+    box-sizing: border-box;
+
+    opacity: 1;
+}
+
+
+
+
+/* post Modal CSS*/
+
+div.fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    border: 0;
+    margin: 20px 0;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    background-color: #fff;
+}
+
+.edit-overlay input,
+.edit-overlay textarea,
+.join-overlay input,
+.join-overlay textarea {
+    margin: 0;
+    padding: 15px;
+    border-radius: 0;
+    border: 0;
+    font-size: 16px;
+    outline: 0;
+    vertical-align: middle;
+}
+
+.edit-overlay, .join-overlay button {
+    border: 0;
+    font-size: 16px;
+}
+
+label {
+    width: 360px;
+    height: 100%;
+}
+
+.join-overlay, .info-overlay, .edit-overlay{
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.title {
+    text-align: center;
+    color: #CBB279;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.image-box,
+.name-box, 
+.mbti-box ,
+.blog-box,
+.comment-box, 
+.pw-box {
+    width: 360px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    margin-top: 15px;
+}
+
+#edit-advantages, #edit-collaboration {
+    width: 100%;
+    border-radius: 5%;
+    resize: none;
+}
+
+.modal-btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-btn-area > button {
+    width: 160px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 5px 3px 3px #dcdcdc;
+    color: #E1D4BB;
+    background-color: #537188;
+}
+
+.modal-btn-area > button:hover {
+    background-color: #537188;
+    color: #E1D4BB;
+    font-weight: 700;
+    border: 5px solid transparent;
+    box-sizing: border-box;
+
+    opacity: 0.7;
+}
+
+/* detail Modal CSS*/
+.detail {
+
+    width: 100%;
+    height: 40px;
+
+    background-color: #630A10;
+    color: #FCF0C8;
+    font-size: 20px;
+
+    border-radius: 50px;
+    border: 2px solid whitesmoke;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+
+    opacity: 0.7;
+}
+
+.detail:hover {
+    font-weight: 700;
+    border: 5px solid #630A10;
+    box-sizing: border-box;
+
+    opacity: 1;
+}
+
+.detail-overlay, .join-overlay,.edit-overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+ .detail-flex {
+
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    top: 450px;
+    left: 50%;
+    
+    
+    width: 400px;
+    max-height: 600px;
+    
+    background-color: #fff;
+} 
+.info-flex {
+    display: flex;
+    gap: 30px;
+    align-items:center;
+}
+
+/* 왜 안먹힐까? 
+
+.info-flex > p,a {
+    margin-top: 10px ;
+} */
+
+.info-subject {
+    background-color: #3F4E4F;
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info-image img {
+    width: 200px;
+    max-height: 200px;
+    
+    object-fit: cover;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+}
+
+.info-advantages, .info-collaboration {
+    text-align: center;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap; 
+}
+
+.info-comment {
+    margin-bottom: 20px;
+}
+
+.edit-icons {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+}
+
+.edit-icons > img {
+    cursor: pointer;
+    width: 40px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기억해조re_member 💭</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/logo-black.png">
+
+    <link rel="stylesheet" href="../static/index.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../static/index.css" />
+
+    <script src="../static/index.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <h1><img src="../static/img/logo-horiz-wh.png" alt="logo" /></h1>
+            </div>
+        </div>
+    </header>
+    <!-- team contents "onClick 이벤트 추가 페이지 열기" -->
+    <div class="info-team">
+        <div class="box-team">
+            <p> 4조 기억해조 입니다</p>
+            <p> 이멤버 리멤버 re_member 상세보기</p>
+        </div>
+    </div>
+    <!-- member list -->
+    <div id="columns">
+  
+    </div>
+    <!--btn area-->
+    <div class="btnarea">
+        <button class="join">함께할래요 ✋🏻</button>
+    </div>
+
+
+
+    <!--detail Modal -->
+    <div id="detail" class="detail-overlay">
+        <div class="detail-flex">
+            <div class="edit-icons">
+                <img src="../static/icon/pencil-lined.svg" alt="#" class="edit">
+                <img src="../static/icon/trash-can-lined.svg" alt="#" class="del">
+            </div>
+
+            <div class="info-text">
+                <div class="info-flex">
+                    <div class="info-image">
+                        <!-- <img src="#" alt="#">  -->
+                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cinderella.jpg" />
+                    </div>
+
+                    <div class="info-text">
+                        <p class="info-name">신데렐라</p>
+                        <p class="info-mbti">ISTJ</p>
+                        <a href="https://velog.io/@yjw0517" target='_blank' title="블로그 이동" class="info-blog">블로그</a>
+                    </div>
+                </div>
+                <div class="info-contents">
+                    <p class="info-subject">장점</p>
+                    <p class="info-advantages">저는 친절하고, 도움을 주며, 동정적이고, 남을 사랑하는 성격을 가지고 있으며, 순수하고 착한 면모가 장점입니다.</p>
+                    <p class="info-subject"> 협업 스타일 </p>
+                    <p class="info-collaboration">소통을 중요시 생각하는 스타일입니다. 동물들과 친화력이 상당히 좋은 편이라 대화까지 나눌 수 있고, 생쥐들과 고양이
+                        집에사는 개와 말등 다른 동물들의 식사까지 챙겨주며 협력했습니다. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--post Modal-->
+    <div id="overlay" class="join-overlay">
+        <div class="fieldset">
+
+            <div class="title">
+                <p>기억해조 가입하기</p>
+            </div>
+
+            <table>
+                <colgroup>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td class="image-box">
+                            <input type="text" id="img" name="img" size="35" placeholder="이미지 url을 적어줘">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name-box">
+                            <label for="aname">
+                                <input type="text" id="aname" name="name" size="35" placeholder="이름을 적어줘" autofocus>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mbti-box">
+                            <label for="mbti">
+                                <input type="text" id="mbti" name="mbti" size="35" placeholder="MBTI 적어줘" autofocus>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="blog-box">
+                            <input id="blog" name="blog" cols="30" rows="5" placeholder="블로그를 적어줘"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="comment-box">
+                            <textarea name="edit-advantages" id="edit-advantages" cols="30" rows="5"
+                                placeholder="너의 장점을 적어줘"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="comment-box">
+                            <textarea name="edit-collaboration" id="edit-collaboration" cols="30" rows="5"
+                                placeholder="너의 협업 스타일을 적어줘"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pw-box">
+                            <input type="password" id="pw" name="pw" maxlength="15" size="35" placeholder="비밀번호를 적어줘">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal-btn-area">
+                <button class="submit">작성하기</button>
+                <button class="cancel">취소하기</button>
+            </div>
+        </div>
+    </div>
+    <!--edit Modal-->
+    <div id="overlay" class="edit-overlay">
+        <div class="fieldset">
+
+            <div class="title">
+                <p>멤버정보 수정하기</p>
+            </div>
+
+            <table>
+                <colgroup>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td class="image-box">
+                            <input type="text" id="img" name="img" size="35" placeholder="이미지 url을 적어줘">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="name-box">
+                            <label for="aname">
+                                <input type="text" id="aname" name="aname" size="35" placeholder="이름을 적어줘" autofocus>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mbti-box">
+                            <label for="mbti">
+                                <input type="text" id="mbti" name="mbti" size="35" placeholder="MBTI 적어줘" autofocus>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="blog-box">
+                            <input id="blog" name="blog" cols="30" rows="5" placeholder="블로그를 적어줘"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="comment-box">
+                            <textarea name="edit-advantages" id="edit-advantages" cols="30" rows="5"
+                                placeholder="너의 장점을 적어줘"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="comment-box">
+                            <textarea name="edit-collaboration" id="edit-collaboration" cols="30" rows="5"
+                                placeholder="너의 협업 스타일을 적어줘"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pw-box">
+                            <input type="password" id="pw" name="pw" maxlength="15" size="35" placeholder="비밀번호를 적어줘">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal-btn-area">
+                <button class="edit-submit">작성하기</button>
+                <button class="edit-cancel">취소하기</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
