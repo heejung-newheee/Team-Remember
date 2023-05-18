@@ -127,6 +127,11 @@ def commentInfo_delete(p_id, r_id):
     db.commentdata.delete_one({'p_id':int(p_id), 'r_id':int(r_id)})
     return jsonify({'msg': '댓글 삭제 완료'})
 
+@app.route("/comment/<p_id>/<r_id>", methods=["PUT"])
+def commentInfo_edit(p_id, r_id):
+    comment_receive = request.form['comment_give']
+    db.commentdata.update_one({'p_id':int(p_id), 'r_id':int(r_id)},{'$set':{'comment': comment_receive}})
+    return  jsonify({'msg': '댓글 수정 완료'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)

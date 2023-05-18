@@ -33,7 +33,7 @@
 
   position: absolute;
   /* left: 30px; */
-  top: 20px;
+  top: 60px;
 }
 .kill-modal-darkness {
   position: fixed;
@@ -55,7 +55,7 @@
   width: 800px;
   margin: 0 auto;
 
-  height: 800px;
+  height: 700px;
   overflow: auto;
 }
 .detail-post {
@@ -93,8 +93,8 @@
 } */
 
 .comment-bg {
-  padding-top: 0;
-  padding-bottom: 60px;
+  padding: 0.1;
+  /* padding-bottom: 60px; */
 }
 .comment-toggle-btn1 {
   margin: 0;
@@ -137,6 +137,7 @@
   /* background-color: olive; */
   height: 40px;
   border-top: 1px solid lightgray;
+  padding: 0.1px;
 }
 .comment-post-wrapper div input {
   display: inline-block;
@@ -197,8 +198,14 @@
 .comment-get-top button:hover {
   cursor: pointer;
 }
-#comment-edit:hover {
+#comment-edit-start:hover {
   color: green;
+}
+.comment-edit {
+  display: none;
+}
+.comment-edit:hover {
+  color: orange;
 }
 #comment-delete:hover {
   color: red;
@@ -209,6 +216,13 @@
   margin-top: 5px;
   font-weight: 400;
 }
+.comment-get-mid textarea {
+  width: 700px;
+  min-height: 50px;
+  resize: none;
+  border: none;
+  background-color: white;
+}
 .comment-get-bottom {
   padding-top: 0px;
   font-size: 13px;
@@ -218,7 +232,7 @@
 /* 하... 왜 안되냐구.... id이외로 !important로도 안됨.. */
 .comment-list-item {
   border-bottom: 1px solid lightgray;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 /* footer {

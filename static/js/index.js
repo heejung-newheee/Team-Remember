@@ -135,13 +135,16 @@ function toShowMoreInfo(pre_p_id) {
       <!-- 접히는 부분 id=comment-toggle box -->
       <!-- ! 수정필요 아래 백그라운드 배경 수정 필요한가 -->
       <div class="detail-post comment-post-wrapper comment-bg">
-        <div><input id="comment-name" placeholder="이름" /></div>
-        <textarea
-          name="comment"
-          id="comment"
-          placeholder="궁금하거나 하실 말씀이 있으면 댓글을 입력해주세요!"></textarea>
-        <div><button id="pForC${p_id}" onclick="commentPosting(this.id)">등록</button></div>
+
+            <div><input id="comment-name" placeholder="이름" /></div>
+            <textarea
+              name="comment"
+              id="comment"
+              placeholder="궁금하거나 하실 말씀이 있으면 댓글을 입력해주세요!"></textarea>
+            <div><button id="pForC${p_id}" onclick="commentPosting(this.id)">등록</button></div>
+            <div width="100%" height="60px"; style="background-color: white"></div>
       </div>
+
       `;
       $('#heytopPost').append(temp_html);
       // }
@@ -164,15 +167,18 @@ function toShowMoreInfo(pre_p_id) {
           <div class="comment-get-items comment-get-top">
             <span>${comment_name}</span>
             <div>
-              <button id="comment-edit" style="font-weight: 500">수정</button>/<button onclick="commentDelete(${p_id}, ${r_id})"
+              <button onclick="commentEditShow(${p_id}, '#cp${r_id}', '#ec${r_id}')" id="comment-edit-start" style="font-weight: 500">수정 </button>
+              <button onclick="commentEdit(${p_id}, '#ec${r_id}')"
+                class="comment-edit"
+                id="cp${r_id}" 
+                style="font-weight: 500"> 수정완료</button>
+              <button onclick="commentDelete(${p_id}, ${r_id})"
                 id="comment-delete"
-                style="font-weight: 500">
-                삭제
-              </button>
+                style="font-weight: 500"> 삭제</button>
             </div>
           </div>
           <div class="comment-get-items comment-get-mid">
-            <span>${comment}</span>
+            <textarea id="ec${r_id}" class="sbcomment" disabled>${comment}</textarea>
           </div>
           <div class="comment-get-items comment-get-bottom"><span>2023.05.15. 11:48</span></div>
         </div>
@@ -222,4 +228,36 @@ function commentDelete(p_id, r_id) {
       alert(data['msg']);
       location.reload();
     });
+}
+
+// 댓글 수정
+function commentEdit(p_id, ecr_id) {
+  // ecr_id는 'editted comment r_id'의 약자..?로 씀
+  let r_id = ecr_id.substr(2);
+  let editted_comment = $(ecr_id).val();
+
+  let formData = new FormData();
+  formData.append('comment_give', editted_comment);
+  fetch(`/comment/${p_id}/${r_id}`, { method: 'PUT', body: formData })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      alert(data['msg']);
+      location.reload();
+    });
+}
+
+// 댓글 수정버튼 클릭시 행동
+// $('#comment-edit-start').on('click', function () {
+//   console.log('하잉');
+//   $('#comment-edit').show();
+// });
+function commentEditShow(p_id, cpr_id, ecr_id) {
+  console.log('하잉');
+  $(cpr_id).toggle();
+  // if (disabled) {
+  $(ecr_id).prop('disabled', false);
+  // } else {
+  // $(ecr_id).prop('disabled', true);
+  // }
 }
